@@ -1,7 +1,9 @@
 (function() {
-	// input
+	// form inputs
 	var income = document.getElementById('income');
-	var expense = document.getElementById('expense');
+
+	var misc = document.getElementById('misc');
+	var spotify = document.getElementById('spotify');
 
 	// butttons
 	var submit = document.getElementById('submitBtn');
@@ -18,7 +20,7 @@
 
 	// chart data
 	var chartData = {
-		labels: ['Expense'],
+		labels: ['hello', 'blah'],
 
 		datasets: [
 			{
@@ -26,10 +28,11 @@
         strokeColor: "rgba(151,187,205,0.8)",
         highlightFill: "rgba(151,187,205,0.75)",
         highlightStroke: "rgba(151,187,205,1)",
-        data: [28]
+        data: ['30', '40', '200', '300']
 			}
 		]
 	};
+
 	var barChart = new Chart(ctx).Bar(chartData);
 
 
@@ -57,12 +60,16 @@
 	
 	function calcExpense() {
 		// get expense values
-		var expenseVal = expense.value;
+		var miscVal = misc.value;
+		var spotifyVal = spotify.value;
+
+		// calculate expense
+		var total = miscVal - spotifyVal;
 
 		// set expense in HTML
-		totalExpense.innerHTML = expenseVal;
+		totalExpense.innerHTML = total;
 
-		return expenseVal;
+		return total;
 	}
 
 	function calcNetIncome() {
@@ -75,8 +82,32 @@
 		//return netIncomeVal;
 	}
 
+	// chartData functions
+	function pushExpenseToChart() {
+		// get labels
+		var expenseContainer = document.getElementById('expenseContainer');
+		var labels = expenseContainer.getElementsByTagName('label');
+
+		// push 'labels' to chartData.labels
+		var pushLabels = function() {
+			for(var i = 0;i < labels.length; i++) {
+				chartData.labels.push(labels[i].getAttribute('for'));
+				console.log(chartData.labels);
+			}
+
+		updateChart();
+		};
+
+		pushLabels();
+	}
+
+	// update chart
+	function updateChart() {
+		barChart.update();
+	}
 
 
+	// submit form event listener
 	submit.addEventListener('click', function(e) {
 		// prevent page from refreshing
 		e.preventDefault();
@@ -85,6 +116,8 @@
 		calcIncome();
 		calcExpense(); 
 		calcNetIncome();
+
+		pushExpenseToChart();
 	});
 
 })();

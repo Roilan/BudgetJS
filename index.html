@@ -34,13 +34,23 @@
 			</section>
 
 	  	<hr />
+		
+			<section id="expenseContainer">
+				<section class="form-group">
+					<label for="misc" class="col-sm-2 control-label">Misc:</label>
 
-			<section class="form-group">
-				<label for="expense" class="col-sm-2 control-label">Expense:</label>
+					<div class="col-sm-10">
+			    	<input type="number" class="form-control" id="misc"/>
+					</div>
+				</section>
 
-				<div class="col-sm-10">
-		    	<input type="number" class="form-control" id="expense"/>
-				</div>
+				<section class="form-group">
+					<label for="spotify" class="col-sm-2 control-label">Spotify:</label>
+
+					<div class="col-sm-10">
+			    	<input type="number" class="form-control" id="spotify"/>
+					</div>
+				</section>
 			</section>
 
 			<div class="form-group">
@@ -60,8 +70,8 @@
 		<p>Your total expense is: $<span id="totalExpense"></span></p>
 		<p>Your remaining balance is: $<span id="netIncome"></span></p>
 	</section>
-
-	<section>
+	
+	<section class="chart">
 		<canvas id="myChart" width="400" height="400"></canvas>
 	</section>
 </main>
