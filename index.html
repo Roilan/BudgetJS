@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Budget App</title>
+    <meta charset="UTF-8">
+    <title>Budget App</title>
 	
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/index.css">
@@ -23,15 +23,14 @@
   </header>
 
 	<main class="container expense-forms">
-  	<form class="form-horizontal">
+        <form class="form-horizontal">
+            <section class="form-group">
+                <label for="income" class="col-sm-2 control-label">Income:</label>
 
-			<section class="form-group">
-				<label for="income" class="col-sm-2 control-label">Income:</label>
-
-				<div class="col-sm-10">
-		    	<input type="number" class="form-control" id="income" />
-				</div>
-			</section>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="income" />
+                </div>
+            </section>
 
 	  	<hr />
 		
@@ -40,7 +39,7 @@
 					<label for="misc" class="col-sm-2 control-label">Misc:</label>
 
 					<div class="col-sm-10">
-			    	<input type="number" class="form-control" id="misc"/>
+			    	    <input type="number" class="form-control" id="misc"/>
 					</div>
 				</section>
 
@@ -48,30 +47,25 @@
 					<label for="spotify" class="col-sm-2 control-label">Spotify:</label>
 
 					<div class="col-sm-10">
-			    	<input type="number" class="form-control" id="spotify"/>
+			    	    <input type="number" class="form-control" id="spotify"/>
 					</div>
 				</section>
 			</section>
 
 			<div class="form-group">
-	    	<div class="col-sm-offset-2 col-sm-10">
-	        <button id="submitBtn" type="submit" class="btn btn-primary">Budget</button>
+                <button id="submitBtn" type="submit" class="btn btn-primary">Budget</button>
+                <button id="clearBtn" class="btn btn-primary">Clear</button>
+                <button id="logBtn" class="btn btn-primary">Log</button>
+	        </div>
 
-	        <button id="clearBtn" class="btn btn-primary">Clear</button>
+	    </form>
 
-	        <button id="logBtn" class="btn btn-primary">Log</button>
-	      </div>
-	    </div>
-
-	</form>
-
-	<section>
-		<p>Your total income is: $<span id="totalIncome"></span></p>
-		<p>Your total expense is: $<span id="totalExpense"></span></p>
-		<p>Your remaining balance is: $<span id="netIncome"></span></p>
-	</section>
-
-</main>
+        <section class="balance">
+            <p>Your total income is: $<span id="totalIncome"></span></p>
+            <p>Your total expense is: $<span id="totalExpense"></span></p>
+            <p>Your remaining balance is: $<span id="netIncome"></span></p>
+        </section>
+	</main>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 	<script src="js/index.js"></script>

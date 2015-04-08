@@ -1,11 +1,11 @@
 (function() {
-	// form inputs
-	var income = document.getElementById('income');
+    // form inputs
+    var income = document.getElementById('income');
 
 	var misc = document.getElementById('misc');
 	var spotify = document.getElementById('spotify');
 
-	// butttons
+	// buttons
 	var submit = document.getElementById('submitBtn');
 	var clear = document.getElementById('clearBtn');
 	var log = document.getElementById('logBtn');
@@ -39,7 +39,7 @@
 		var spotifyVal = spotify.value;
 
 		// calculate expense
-		var total = miscVal - spotifyVal;
+		var total = parseFloat(miscVal) + parseFloat(spotifyVal);
 
 		// set expense in HTML
 		totalExpense.innerHTML = total;
@@ -54,7 +54,7 @@
 		// set net income in HTML
 		netIncome.innerHTML = netIncomeVal;
 
-		//return netIncomeVal;
+		return netIncomeVal;
 	}
 
 	// submit form event listener
@@ -62,17 +62,13 @@
 		// prevent page from refreshing
 		e.preventDefault();
 		
-		// invoke calc functions
-		calcIncome();
-		calcExpense(); 
+		// calculate balance
 		calcNetIncome();
 	});
 
 
 	// log
-	var logBtn = document.getElementById('logBtn');
-
-	logBtn.addEventListener('click', function(e) {
+	log.addEventListener('click', function(e) {
 		e.preventDefault();
 
 	});
